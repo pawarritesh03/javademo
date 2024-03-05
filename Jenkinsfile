@@ -5,13 +5,7 @@ pipeline {
               }
 		 stages{ 
 		 
-		       stage("Checkout the code "){
-			   steps{
-			 			 
-				 git branch: "$branch_name", url: 'https://github.com/cloud-dev-user/javademo.git'
-				    }
-				}
-			   stage("Build package"){
+		         stage("Build package"){
 			   steps{
 			       sh " mvn package" 
 				   }
