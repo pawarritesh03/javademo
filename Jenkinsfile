@@ -1,10 +1,10 @@
 pipeline {
     agent { label 'MyFirstLabel' }
-
+    parameters {string defaultValue: 'master', name: 'branch_name'}
     stages {
         stage('checkout the code') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/cloud-dev-user/javademo.git']])
+                git branch: "$branch_name", url: 'https://github.com/pawarritesh03/javademo.git'
             }
         }
         
